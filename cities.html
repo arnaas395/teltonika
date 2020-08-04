@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teltonika</title>
+    <link rel='stylesheet' href='styles/styles.css'/>
+</head>
+<body>
+    <header>
+        <div class='logo'><img src='images/teltonika_logo3.png'/></div>
+        <ul></ul>
+        <ul></ul>
+    </header>
+
+    <div class="page">
+        <section class="section page-name">
+            <h1 id="country-name"></h1>
+            <img id="buttonAdd" src="images/add_button.png"/>
+        </section>
+
+        <section class="section search-filter">
+            <div class="search-bar">
+                <img id="searchButton" src="images/search_button.png"/>
+                <textarea name="search" id="searchText"></textarea>
+            </div>
+            <div class="filter-bar">
+                <p>Data Filter</p>
+                <img id="filterToggle" src="images/filter_date.png"/>
+
+                <div id="filterBox" class="filter-background">
+                    <div id="filterBoxClose" class="close"><img src="images/close_btn.png"></div>
+            
+                    <div class="date-table">
+                        <label for="sort-date">Pasirinkite data</label>
+            
+                        <input type="date" id="sortDate" name="sort-date">
+                    </div>
+                    <button type="button" id="filterButton">Filtruoti</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section data-table">
+            <table class="content-table">
+                <thead>
+                    <tr>
+                        <th>
+                            Pavadinimas
+                            <div class="sort-by-name">
+                                <img id="sortAsc" src="images/sort_up.png"/>
+                                <img id="sortDesc" src="images/sort_down.png"/>
+                            </div>
+                        </th>
+                        <th>Užimamas plotas</th>
+                        <th>Gyventojų skaičius</th>
+                        <th>Miesto pašto kodas</th>
+                        <th>Veiksmai</th>
+                    </tr>
+                </thead>
+                <tbody id="bot_table"></tbody>
+            </table>
+        </section>
+
+        <section class="section pagination">
+            <img src="images/left_side_arrow.png"/>
+            <div id="paginationLinks" class="pagination-links">
+
+            </div>
+            <img src="images/right_side_arrow.png"/>
+        </section>
+    </div>
+
+    <div id="formAddBackground" class="form-background">
+        <form class="form">
+            <h1>Pridėti miestą</h1>
+            <div id="FormAddClose" class="close"><img src="images/close_btn.png"></div>
+            <ul>
+                <li>
+                    <label for="name">Pavadinimas</label>
+                    <input type="text" name="name" id="addName" maxlength="20">
+                </li>
+                <li>
+                    <label for="plot">Užimamas plotas</label>
+                    <input type="text" name="plot" id="addPlot" maxlength="20">
+                </li>
+                <li>
+                    <label for="population">Gyventojų skaičius</label>
+                    <input type="text" name="population" id="addPopulation" maxlength="20">
+                </li>
+                <li>
+                    <label for="postal-code">Pašto kodas</label>
+                    <input type="text" name="postal-code" id="addPostalCode"maxlength="20">
+                </li>
+                <li>
+                    <label for="country-id">Šalies id.</label>
+                    <input type="text" name="country-id" id="addCountryId" maxlength="20">
+                </li>
+                <li>
+                    <input id="addSubmit" type="submit" value="Saugoti" >
+                </li>
+            </ul>
+        </form>
+    </div>
+
+    <div id="formEditBackground" class="form-background">
+        <form class="form">
+            <h1>Redaguoti miestą</h1>
+            <div id="FormEditClose" class="close"><img src="images/close_btn.png"></div>
+            <ul>
+                <input type="hidden" name="elementId" id="elementId">
+                <li>
+                    <label for="name">Pavadinimas</label>
+                    <input type="text" name="name" id="editName" maxlength="20">
+                </li>
+                <li>
+                    <label for="plot">Užimamas plotas</label>
+                    <input type="text" name="plot" id="editPlot" maxlength="20">
+                </li>
+                <li>
+                    <label for="population">Gyventojų skaičius</label>
+                    <input type="text" name="population" id="editPopulation" maxlength="20">
+                </li>
+                <li>
+                    <label for="country-code">Pašto kodas</label>
+                    <input type="text" name="country-code" id="editPostalCode"maxlength="20">
+                </li>
+                <li>
+                    <label for="country-id">Šalies id.</label>
+                    <input type="text" name="country-id" id="editCountryId" maxlength="20">
+                </li>
+                <li>
+                    <input id="editSubmit" type="submit" value="Saugoti" >
+                </li>
+            </ul>
+        </form>
+    </div>
+
+    <script src="/script/cities-get.js"></script>
+    <script src="/script/city-add.js"></script>
+    <script src="/script/city-delete.js"></script>
+    <script src="/script/city-edit.js"></script>
+    <script src="/script/city-functions.js"></script>
+    <script src="/script/city-pagination.js"></script>
+</body>
+</html>
