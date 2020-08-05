@@ -1,16 +1,17 @@
 for(let i = 1; i < 10; i++)
 {
     url = setUrl("page="+i);
-    loadDataForPagination(url, i);
+    loadDataForPagination(url);
 }
+let pageNumber = 0;
 
-function loadDataForPagination (url, pageNumber) {
+function loadDataForPagination (url) {
     let request = new XMLHttpRequest();
     request.onload = function () {
         let data = JSON.parse(this.response);
         if(data.countires.length != 0)
         {
-            console.log(pageNumber);
+            pageNumber += 1;
             getPaginationNumber(pageNumber);
         }
     }
