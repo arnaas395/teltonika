@@ -5,11 +5,15 @@ function openEditForm (id) {
 
 function getElementWithId (id) {
     let request = new XMLHttpRequest();
-    url = 'https://akademija.teltonika.lt/api3/cities/'+id;
+    url = 'https://akademija.teltonika.lt/api3/cities';
 
     request.onload = function () {
         let data = JSON.parse(this.response);
-        fillEditForm(data);
+        for(let i = 0; i < data.cities.length; i++)
+        {
+          if(data.cities[i].id === id)
+          fillEditForm(data.cities[i]);
+        }
     }
 
     request.open('GET', url, true);
