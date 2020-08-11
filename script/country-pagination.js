@@ -1,4 +1,6 @@
-for(let i = 1; i < 10; i++)
+let numberOfPages = 10;
+
+for(let i = 1; i < numberOfPages; i++)
 {
     url = setUrl("page="+i);
     loadDataForPagination(url);
