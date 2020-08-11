@@ -1,13 +1,18 @@
+let numberOfPages = 10;
+
 function openEditForm (id) {
     document.getElementById("formEditBackground").style.display = "block";
     getElementWithId(id);
 }
 
 function getElementWithId (id) {
-    let request = new XMLHttpRequest();
-    url = 'https://akademija.teltonika.lt/api3/cities';
 
-    request.onload = function () {
+    for (let i = 1; i < numberOfPages; i++)
+    {
+      let request = new XMLHttpRequest();
+      url = 'https://akademija.teltonika.lt/api3/cities?page='+i;
+
+      request.onload = function () {
         let data = JSON.parse(this.response);
         for(let i = 0; i < data.cities.length; i++)
         {
@@ -16,8 +21,9 @@ function getElementWithId (id) {
         }
     }
 
-    request.open('GET', url, true);
-    request.send();
+      request.open('GET', url, true);
+      request.send();
+    }
 }
 
 function fillEditForm (city) {
